@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Counter Application</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    #btn-increment {
+      background-color: #27ae60;
+      color: #ffffff;
+    }
+
+    #btn-decrement {
+      background-color: #e74c3c;
+      color: #ffffff;
+    }
+
+    #btn-reset {
+      background-color: #f0f4f8;
+      color: #2c3e50;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Counter App</h1>
+
+    <div id="count-display">0</div>
+    <div id="status-label"></div>
+
+    <div class="btn-group">
+      <button id="btn-decrement" onclick="decrement()">− Decrement</button>
+      <button id="btn-reset"     onclick="reset()">Reset</button>
+      <button id="btn-increment" onclick="increment()">+ Increment</button>
+    </div>
+
+    
+  </div>
+
+  <script>
+    var count = 0;
+
+    function render() {
+      var display = document.getElementById("count-display");
+      var label   = document.getElementById("status-label");
+
+      display.textContent = count;
+
+      }
+
+    function increment() {
+      count = count + 1;
+      render();
+    }
+
+    function decrement() {
+      count = count - 1;
+      render();
+    }
+
+    function reset() {
+      count = 0;
+      render();
+      document.getElementById("status-label").textContent = "Reset!";
+      
+    }
+
+    render();
+  </script>
+
+</body>
+</html>
